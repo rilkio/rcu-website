@@ -444,3 +444,22 @@ img { max-width: 100%; }
   .chip { animation: none; }
   .lp-shot .window, .benefit, .star-input label { transition: none; transform: none; }
 }
+
+/* Kompaktere Karten auf dem Handy */
+@media (max-width: 760px) {
+  .section { padding-block: 26px; }
+  .benefit { display: grid; grid-template-columns: auto 1fr; column-gap: 14px; align-items: center; padding: 14px 16px; }
+  .benefit .b-icon { grid-row: span 2; margin: 0; }
+  .benefit h3 { margin: 0; font-size: 16px; }
+  .benefits { gap: 10px; }
+  .start-steps { gap: 10px; }
+  .start-steps li { display: grid; grid-template-columns: auto 1fr auto; column-gap: 12px; align-items: center; padding: 14px 16px; }
+  .start-steps li::before { grid-row: span 2; }
+  .start-steps h3 { margin: 0; font-size: 16px; }
+  .start-steps p { margin: 0; grid-column: 2; }
+  .start-steps .btn { grid-column: 3; grid-row: 1 / span 2; }
+  .vn-card { padding: 14px; }
+  .vn-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .vn-card li { font-size: 13.5px; padding-left: 24px; }
+  .vn-card .about-label { font-size: 10px; }
+}

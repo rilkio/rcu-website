@@ -32,7 +32,7 @@
 
   document.querySelectorAll('[data-premium-price]').forEach(function (el) { el.textContent = price || 'Preis folgt'; });
   document.querySelectorAll('[data-premium-price-sub]').forEach(function (el) {
-    el.textContent = !shopUrl ? 'Bald verfügbar' : price ? 'einmalig, gilt für dein RCU-Konto' : 'Den Preis siehst du im Checkout';
+    el.textContent = !shopUrl ? 'Bald verfügbar' : price ? 'gilt für dein RCU-Konto' : 'Den Preis siehst du im Checkout';
   });
 
   if (!shopUrl) { $('premium-consent').hidden = true; zustand('soon', 'Bald verfügbar', false); return; }
@@ -57,7 +57,7 @@
     agree.checked = false; agree.disabled = true;
     zustand('login', 'Premium kaufen', true);
     zeige('Zum Kaufen meldest du dich mit deinem RCU-Konto an. Danach kommst du hierher zurück.');
-    aktion = function () { gehe('konto.html?next=premium', 'Weiter zur Anmeldung:'); };
+    aktion = function () { gehe('konto?next=premium', 'Weiter zur Anmeldung:'); };
   }
 
   function pruefen() { return sb.auth.getSession().then(async function (r) {

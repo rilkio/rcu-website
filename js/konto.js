@@ -9,7 +9,7 @@
   var selfUrl = location.href.split('#')[0].split('?')[0];
   // konto.html?next=premium: nach der Anmeldung zurück zum Premium-Kauf (nur dieses feste Ziel, keine fremden Adressen)
   // konto.html?next=bewertung: nach der Anmeldung zurück zu den Bewertungen
-  var ziele = { premium: 'rcu.html#premium', bewertung: 'index.html#bewertungen' };
+  var ziele = { premium: 'rcu#premium', bewertung: './#bewertungen' };
   var next = new URLSearchParams(location.search).get('next');
   var weiterZu = Object.prototype.hasOwnProperty.call(ziele, next) ? ziele[next] : '';
 
