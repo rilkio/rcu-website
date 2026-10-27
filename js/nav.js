@@ -9,11 +9,21 @@
   } catch (e) { /* kein Zugriff auf localStorage: Standardtext bleibt */ }
 })();
 
+/* Links aus Bestätigungs- und Passwort-Mails landen auf der Startseite (Site URL in Supabase), z. B. aus der App.
+   Dann gleich zur Konto-Seite weiter, die den Link auswertet. */
+(function () {
+  if (!document.getElementById('bewertungen')) return;
+  if (/access_token=|error_description=|type=(recovery|signup|email_change)/.test(location.hash) || /[?&](code|token_hash)=/.test(location.search)) {
+    window.RCU_WEITER = true;
+    location.replace('konto' + location.search + location.hash);
+  }
+})();
+
 /* Startseite: Menüpunkte springen zum Abschnitt, ohne #… in der Adresszeile,
    und das Menü markiert immer den Abschnitt, in dem man gerade ist. */
 (function () {
   var bereiche = [['bewertungen', 'bewertungen'], ['rilkio', 'rilkio'], ['kanaele', 'rilkio'], ['faq', '']];
-  if (!document.getElementById('bewertungen')) return;
+  if (!document.getElementById('bewertungen') || window.RCU_WEITER) return;
   var links = {};
   document.querySelectorAll('.nav .nav-btn').forEach(function (a) {
     var h = a.getAttribute('href');
