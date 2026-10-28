@@ -9,7 +9,7 @@
 window.RCU_CONFIG = {
   SUPABASE_URL: 'https://ivekefjfhxkozczodwxd.supabase.co',
   SUPABASE_KEY: 'sb_publishable_eg-4ALpYHD2_pV6WUBfNeQ_5a9MrsEU',
-  DOWNLOAD_URL: 'download/RCU-Setup-1.3.0.exe',
+  DOWNLOAD_URL: 'download/RCU-Setup-1.3.1.exe',
   SHOP_PREMIUM_URL: '',
   PREMIUM_PRICE: '49,99 €'
 };
