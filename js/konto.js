@@ -98,7 +98,62 @@
     $('p-active').hidden = !premium;
     $('p-aff-row').hidden = !p.affiliate_code;
     $('p-aff').textContent = p.affiliate_code || '';
+    discordZeigen(premium);
   }
+
+  // Discord: Premium-Nutzer verbinden ihren Discord-Account und bekommen dort die Rolle "Premium"
+  var discordInvite = 'https://discord.gg/HQfnW3px6n';
+  var discordGeradeVerbunden = new URLSearchParams(location.search).get('discord') === '1';
+  var discordIdentity = null;
+
+  async function discordZeigen(premium) {
+    $('p-discord').hidden = !premium;
+    if (!premium) return;
+    var r = await sb.auth.getUserIdentities();
+    var list = (r.data && r.data.identities) || [];
+    discordIdentity = list.filter(function (i) { return i.provider === 'discord'; })[0] || null;
+    var d = (discordIdentity && discordIdentity.identity_data) || {};
+    var name = d.full_name || d.name || d.user_name || '';
+    $('p-discord-text').textContent = discordIdentity
+      ? 'Discord verbunden' + (name ? ' (' + name + ')' : '') + '. Hol dir jetzt deine Premium-Rolle.'
+      : 'Hol dir die Premium-Rolle auf dem RCU-Discord.';
+    $('p-discord-btn').textContent = discordIdentity ? 'Premium-Rolle holen' : 'Discord verbinden';
+    if (discordIdentity && discordGeradeVerbunden) {
+      discordGeradeVerbunden = false;
+      history.replaceState(null, '', selfUrl);
+      rolleHolen();
+    }
+  }
+
+  var rollenTexte = {
+    not_in_server: 'Du bist noch nicht auf dem RCU-Discord. Tritt bei (' + discordInvite + ') und klick dann nochmal.',
+    not_linked: 'Verbinde zuerst deinen Discord-Account.',
+    not_logged_in: 'Bitte melde dich neu an.',
+    role_missing: 'Die Premium-Rolle fehlt auf dem Server. Bitte öffne ein Ticket auf Discord.',
+    not_configured: 'Die Discord-Verbindung ist noch nicht eingerichtet. Versuch es später nochmal.',
+    bot_not_in_server: 'Die Discord-Verbindung ist noch nicht eingerichtet. Versuch es später nochmal.'
+  };
+
+  async function rolleHolen() {
+    var btn = $('p-discord-btn');
+    btn.disabled = true; zeige('');
+    var r = await sb.functions.invoke('discord-premium', { body: {} });
+    btn.disabled = false;
+    var d = r.data || {};
+    if (!r.error && d.ok && d.premium) return zeige('Fertig! Du hast jetzt die Premium-Rolle auf Discord.', 'ok');
+    zeige(rollenTexte[d.reason] || 'Das hat nicht geklappt. Versuch es später nochmal oder öffne ein Ticket auf Discord.', 'fehler');
+  }
+
+  $('p-discord-btn').addEventListener('click', async function () {
+    if (discordIdentity) return rolleHolen();
+    var r = await sb.auth.linkIdentity({ provider: 'discord', options: { redirectTo: selfUrl + '?discord=1', scopes: 'identify' } });
+    if (r.error) {
+      var m = String(r.error.message || '').toLowerCase();
+      zeige(m.indexOf('manual linking') > -1 || m.indexOf('provider is not enabled') > -1
+        ? 'Die Discord-Verbindung ist noch nicht eingerichtet. Versuch es später nochmal.'
+        : uebersetze(r.error), 'fehler');
+    }
+  });
 
   sb.auth.onAuthStateChange(function (event, session) {
     if (event === 'PASSWORD_RECOVERY') { istRecovery = true; ansicht('neues-passwort'); return; }
