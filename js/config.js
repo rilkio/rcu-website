@@ -11,5 +11,5 @@ window.RCU_CONFIG = {
   SUPABASE_KEY: 'sb_publishable_eg-4ALpYHD2_pV6WUBfNeQ_5a9MrsEU',
   DOWNLOAD_URL: 'download/RCU-Setup-1.3.3.exe',
   SHOP_PREMIUM_URL: 'https://rilkio.myshopify.com/cart/54599070155099:1',
-  PREMIUM_PRICE: '49,99 €'
+  PREMIUM_PRICE: '29,99 €'
 };
