@@ -32,7 +32,7 @@
 
   document.querySelectorAll('[data-premium-price]').forEach(function (el) { el.textContent = price || 'Preis folgt'; });
   document.querySelectorAll('[data-premium-price-sub]').forEach(function (el) {
-    el.textContent = !shopUrl ? 'Bald verfügbar' : price ? 'gilt für dein RCU-Konto' : 'Den Preis siehst du im Checkout';
+    el.textContent = !shopUrl ? 'Bald verfügbar' : price ? 'einmalig · keine USt. nach § 19 UStG' : 'Den Preis siehst du im Checkout';
   });
 
   if (!shopUrl) { $('premium-consent').hidden = true; zustand('soon', 'Bald verfügbar', false); return; }
