@@ -1,8 +1,8 @@
-version: 1.3.5
+version: 1.3.6
 files:
-  - url: RCU-Setup-1.3.5.exe
-    sha512: 8dGagHEQB3NMJy3FgV1pqHpkRC9tSRgeZcIIAqacyrXlG+7Igwm+10NMO+c8w6xuDih/+wNtTYlmh5XFoAJm9w==
-    size: 84469518
-path: RCU-Setup-1.3.5.exe
-sha512: 8dGagHEQB3NMJy3FgV1pqHpkRC9tSRgeZcIIAqacyrXlG+7Igwm+10NMO+c8w6xuDih/+wNtTYlmh5XFoAJm9w==
-releaseDate: '2026-11-01T22:29:32.420Z'
+  - url: RCU-Setup-1.3.6.exe
+    sha512: aFO3j5efnTwgABsRzHYn3oQxQSq9vxFFIGD8MCWfReKI8KR5gkGokeO947RGgkUCwHkDi8jK6Y0ushary4qpOA==
+    size: 84472394
+path: RCU-Setup-1.3.6.exe
+sha512: aFO3j5efnTwgABsRzHYn3oQxQSq9vxFFIGD8MCWfReKI8KR5gkGokeO947RGgkUCwHkDi8jK6Y0ushary4qpOA==
+releaseDate: '2026-11-01T22:55:21.314Z'
