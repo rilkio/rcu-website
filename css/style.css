@@ -463,3 +463,10 @@ img { max-width: 100%; }
   .vn-card li { font-size: 13.5px; padding-left: 24px; }
   .vn-card .about-label { font-size: 10px; }
 }
+
+/* Einführungspreis (js/promo.js) */
+.promo-badge { justify-self: start; align-self: flex-start; width: fit-content; display: inline-block; margin: 0 0 6px; padding: 4px 10px; border-radius: 99px; font: 600 12px/1.4 var(--font-mono); letter-spacing: .02em; color: #fff; background: var(--glow); }
+.promo-after { margin: 6px 0 0; font-size: 13px; color: var(--soft); }
+.promo-line { display: inline-block; margin-top: 12px; padding: 8px 14px; border-radius: 12px; font-size: 14px; font-weight: 600; color: var(--fg); text-decoration: none; border: 1px solid color-mix(in srgb, var(--pink) 55%, transparent); background: color-mix(in srgb, var(--pink) 12%, transparent); }
+.promo-line:hover { background: color-mix(in srgb, var(--pink) 22%, transparent); }
+.promo-line[hidden], .promo-badge[hidden], .promo-after[hidden] { display: none; }
