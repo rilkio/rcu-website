@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Controller Input Delay am PC reduzieren (PS5, PS4, Xbox) · RCU</title>
+  <meta name="description" content="So senkst du den Input Delay deines Controllers am PC: Polling Rate, Kabel statt Bluetooth, Windows-Einstellungen und Latenztest. Mit der kostenlosen RCU geht es mit einem Klick.">
+  <link rel="canonical" href="https://rilkio.de/controller-input-delay">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Controller Input Delay am PC reduzieren">
+  <meta property="og:image" content="https://rilkio.de/img/app/dashboard.jpg">
+  <meta property="og:url" content="https://rilkio.de/controller-input-delay">
+  <link rel="icon" href="img/rcu.png">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Was ist Controller Input Delay?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Die Zeit zwischen Tastendruck oder Stickbewegung und der Reaktion im Spiel. Ein Teil entsteht im Controller und in der Verbindung, ein Teil in Windows, im Spiel und im Monitor."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Wie kann ich den Input Delay am Controller senken?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Controller per Kabel anschließen, die Polling Rate erhöhen, USB-Energiesparen aus, Spielmodus an, Vollbild und im Monitor den Gaming-Modus nutzen. Die RCU stellt die Windows-Seite mit einem Klick ein und misst das Ergebnis."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Ist Bluetooth langsamer als Kabel?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Meist ja. Per Bluetooth sendet ein Controller oft seltener und schwankender. Per Kabel ist die Verbindung stabiler und lässt sich höher takten."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Was ist die Polling Rate beim Controller?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Wie oft pro Sekunde der Controller Daten an den PC schickt. 125 Hz heißt alle 8 ms, 1000 Hz alle 1 ms. Viele Controller laufen ab Werk mit 125 bis 250 Hz."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Funktioniert das mit PS5-, PS4- und Xbox-Controllern?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Die Windows-Tweaks helfen mit jedem Controller. Polling-Rate-Messung, DPI und Drift-Korrektur funktionieren am besten mit PlayStation-Controllern (DualSense, DualShock 4)."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Ist das erlaubt oder Cheaten?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Die RCU ändert nichts am Spiel, nur Windows und die Controller-Verbindung. Alles lässt sich mit einem Klick zurücksetzen."
+   }
+  }
+ ]
+}
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-in">
+      <a class="side-brand" href="./"><img src="img/rcu.png" alt="" width="34" height="34"><span><b>RCU</b><small>by Rilkio</small></span></a>
+      <nav class="nav" aria-label="Hauptmenü">
+        <a class="nav-btn" href="./"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>Home</span></a>
+        <a class="nav-btn" href="rcu" ><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 11h4M8 9v4M15 12h.01M18 10h.01"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258A4 4 0 0 0 17.32 5z"/></svg><span>RCU</span></a>
+        <a class="nav-btn" href="./#bewertungen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.160z"/></svg><span>Bewertungen</span></a>
+        <a class="nav-btn" href="./#rilkio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Über mich</span></a>
+      </nav>
+      <div class="top-actions">
+        <a class="btn sm primary dl-btn" href="rcu#download" aria-label="Download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg><span>Download</span></a>
+        <a class="btn sm konto-btn" href="konto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg><span data-konto-link>Anmelden</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main id="inhalt">
+    <section class="wrap section guide">
+      <p class="kicker">Ratgeber</p>
+      <h1>Controller Input Delay am PC reduzieren</h1>
+      <p class="lead">Weniger Verzögerung mit PS5-, PS4- und Xbox-Controller in Warzone, Fortnite, Apex und Co. Die wichtigsten Schritte, kurz erklärt.</p>
+      <p><a class="btn primary" href="rcu#download">RCU kostenlos laden</a></p>
+
+      <h2>1. Kabel statt Bluetooth</h2>
+      <p>Per USB-Kabel sendet dein Controller stabiler und öfter. Bluetooth schwankt stärker und hat meist mehr Input Lag.</p>
+
+      <h2>2. Polling Rate erhöhen</h2>
+      <p>Die Polling Rate sagt, wie oft der Controller dem PC Daten schickt. Ab Werk sind es oft nur 125 bis 250 Hz, also alle 4 bis 8 ms. Per Kabel schaffen viele PlayStation-Controller 1000 Hz. Die RCU zeigt dir im Latenztest, was dein Controller wirklich schafft, vorher und nachher.</p>
+
+      <h2>3. Windows auf Gaming stellen</h2>
+      <p>USB-Energiesparen aus, Spielmodus an, Game DVR aus, Höchstleistung im Energieplan und Mausbeschleunigung aus. Die RCU hat 52 umkehrbare Tweaks dafür und setzt sie mit einem Klick.</p>
+
+      <h2>4. Spiel und Monitor</h2>
+      <p>Im Spiel Vollbild nutzen und V-Sync aus. Am TV oder Monitor den Spiel- bzw. Gaming-Modus einschalten.</p>
+
+      <h2>5. Stick-Drift und Deadzone prüfen</h2>
+      <p>Zu große Deadzones fühlen sich träge an. Der Stick-Drift-Test der RCU zeigt, wie klein deine Deadzone sein darf.</p>
+
+      <div class="about-card note" style="--c:var(--pink)">
+        <p class="about-label">Mit einem Klick</p>
+        <p>Die <strong>Rilkio Controller Utility (RCU)</strong> macht Schritt 2 bis 5 für dich: Tweaks, Latenztest, Stick-Drift-Test und Overlay. Kostenlos für Windows 10 und 11. <a href="rcu">Mehr zur RCU</a></p>
+      </div>
+    </section>
+
+    <section class="wrap section guide" id="faq" aria-labelledby="faq-titel">
+      <p class="kicker">Fragen</p>
+      <h2 id="faq-titel">Häufige Fragen zum Input Delay</h2>
+      <div class="faq">
+        <details>
+          <summary>Was ist Controller Input Delay?</summary>
+          <p>Die Zeit zwischen Tastendruck oder Stickbewegung und der Reaktion im Spiel. Ein Teil entsteht im Controller und in der Verbindung, ein Teil in Windows, im Spiel und im Monitor.</p>
+        </details>
+        <details>
+          <summary>Wie kann ich den Input Delay am Controller senken?</summary>
+          <p>Controller per Kabel anschließen, die Polling Rate erhöhen, USB-Energiesparen aus, Spielmodus an, Vollbild und im Monitor den Gaming-Modus nutzen. Die RCU stellt die Windows-Seite mit einem Klick ein und misst das Ergebnis.</p>
+        </details>
+        <details>
+          <summary>Ist Bluetooth langsamer als Kabel?</summary>
+          <p>Meist ja. Per Bluetooth sendet ein Controller oft seltener und schwankender. Per Kabel ist die Verbindung stabiler und lässt sich höher takten.</p>
+        </details>
+        <details>
+          <summary>Was ist die Polling Rate beim Controller?</summary>
+          <p>Wie oft pro Sekunde der Controller Daten an den PC schickt. 125 Hz heißt alle 8 ms, 1000 Hz alle 1 ms. Viele Controller laufen ab Werk mit 125 bis 250 Hz.</p>
+        </details>
+        <details>
+          <summary>Funktioniert das mit PS5-, PS4- und Xbox-Controllern?</summary>
+          <p>Die Windows-Tweaks helfen mit jedem Controller. Polling-Rate-Messung, DPI und Drift-Korrektur funktionieren am besten mit PlayStation-Controllern (DualSense, DualShock 4).</p>
+        </details>
+        <details>
+          <summary>Ist das erlaubt oder Cheaten?</summary>
+          <p>Die RCU ändert nichts am Spiel, nur Windows und die Controller-Verbindung. Alles lässt sich mit einem Klick zurücksetzen.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© 2026 Rilkio</span>
+      <nav class="legal-links" aria-label="Rechtliches">
+        <a href="impressum">Impressum</a>
+        <a href="datenschutz">Datenschutz</a>
+        <a href="agb">AGB</a>
+        <a href="widerruf">Widerruf</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="js/config.js"></script>
+  <script src="js/download.js"></script>
+  <script src="js/vendor/supabase-2.45.4.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/promo.js"></script>
+  <script src="js/premium.js"></script>
+</body>
+</html>

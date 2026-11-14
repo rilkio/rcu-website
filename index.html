@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>RCU – Rilkio Controller Utility · Weniger Input-Delay am Controller</title>
-  <meta name="description" content="Die Rilkio Controller Utility (RCU) stellt Windows und deinen Controller mit einem Klick auf möglichst wenig Input-Delay ein. Kostenlos für Windows 10 und 11, entwickelt vom Warzone-Creator Rilkio.">
+  <title>RCU – Controller Input Delay reduzieren am PC · Rilkio Controller Utility</title>
+  <meta name="description" content="Weniger Input Delay mit PS5-, PS4- und Xbox-Controller am PC: Die Rilkio Controller Utility (RCU) setzt 52 Windows-Tweaks mit einem Klick, misst die Polling Rate und testet Stick-Drift. Kostenlos für Windows 10 und 11.">
   <meta name="theme-color" content="#0b0716">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="de_DE">
@@ -26,12 +26,76 @@
     "name": "Rilkio Controller Utility (RCU)",
     "operatingSystem": "Windows 10, Windows 11",
     "applicationCategory": "UtilitiesApplication",
-    "softwareVersion": "1.3.9",
+    "softwareVersion": "1.5.0",
     "inLanguage": "de",
     "description": "Windows-App für weniger Input-Delay mit dem Controller: Windows-Tweaks mit einem Klick, Latenztest, Stick-Drift-Test, Spielprofile und Overlay.",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
     "author": { "@type": "Person", "name": "Rilkio", "alternateName": "Kiril Hahn" }
   }
+  </script>
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Kostet die RCU etwas?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Free ist kostenlos. Premium kostet einmalig einen Einmalbetrag und schaltet alles frei. Kauf direkt auf der RCU-Seite."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Warum warnt Windows beim Installieren?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Die RCU ist noch nicht signiert. Klick auf Weitere Informationen → Trotzdem ausführen."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Kann ich alles wieder rückgängig machen?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Ja, unter Einstellungen → Alles zurücksetzen."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Welche Controller werden unterstützt?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Am besten PlayStation-Controller per Kabel. Die Tweaks helfen mit jedem Controller."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Brauche ich für die App und die Website zwei Konten?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Nein, ein Konto gilt überall."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Ist das Cheaten?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Nein. Die RCU ändert nichts am Spiel, nur an Windows und am Controller. DPI und Drift-Korrektur laufen über DS4Windows, das seit Jahren in Warzone, Fortnite und Apex genutzt wird. Die RCU richtet es mit einem Klick ein."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Wie viel Hz schafft mein Controller?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Ab Werk meist 125 bis 250 Hz. Mit dem Overclock der RCU schaffen die meisten Controller per Kabel 1000 Hz, also 1 ms (Free bis 500 Hz). Was dein Controller wirklich schafft, misst der Latenztest der RCU. Er zählt nur Meldungen mit neuen Daten."
+   }
+  }
+ ]
+}
   </script>
 </head>
 <body>
@@ -84,7 +148,7 @@
       <ul class="stats">
         <li><b>1000 Hz</b><span>Polling-Rate</span></li>
         <li><b>bis 7 ms</b><span>schneller pro Eingabe</span></li>
-        <li><b>12 Tweaks</b><span>für Windows</span></li>
+        <li><b>52 Tweaks</b><span>für Windows</span></li>
         <li><b>0 €</b><span>Free-Tarif</span></li>
       </ul>
     </section>
@@ -166,7 +230,7 @@
           <button role="tab" type="button" id="st-latency" aria-controls="sp-latency" aria-selected="false" tabindex="-1">
             <b>Latenztest</b><span>Vorher/Nachher messen</span></button>
           <button role="tab" type="button" id="st-install" aria-controls="sp-install" aria-selected="false" tabindex="-1">
-            <b>Install</b><span>Firmware und hidusbf</span></button>
+            <b>Install</b><span>Firmware und DS4Windows</span></button>
           <button role="tab" type="button" id="st-overlay" aria-controls="sp-overlay" aria-selected="false" tabindex="-1">
             <b>Overlay</b><span>Eingaben im Stream</span></button>
         </div>
@@ -322,9 +386,10 @@
         </details>
         <details>
           <summary>Wie viel Hz schafft mein Controller?</summary>
-          <p>Ab Werk meist 125 bis 250 Hz. Mit Premium und hidusbf schaffen die meisten Controller per Kabel 1000 Hz, also 1 ms. Was dein Controller wirklich schafft, misst der Latenztest der RCU. Er zählt nur Meldungen mit neuen Daten.</p>
+          <p>Ab Werk meist 125 bis 250 Hz. Mit dem Overclock der RCU schaffen die meisten Controller per Kabel 1000 Hz, also 1 ms (Free bis 500 Hz). Was dein Controller wirklich schafft, misst der Latenztest der RCU. Er zählt nur Meldungen mit neuen Daten.</p>
         </details>
       </div>
+      <p style="margin-top:18px">Mehr Tipps: <a href="controller-input-delay">Controller Input Delay am PC reduzieren</a></p>
     </section>
 
     <!-- ===== Abschluss ===== -->
