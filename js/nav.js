@@ -59,3 +59,17 @@
   window.addEventListener('scroll', markiere, { passive: true });
   markiere();
 })();
+
+/* Besucher-Statistik ohne Cookies: der Server speichert nur einen Tages-Hash (siehe Datenschutz). */
+(function () {
+  if (!/(^|\.)rilkio\.de$/.test(location.hostname) || !navigator.sendBeacon) return;
+  var url = 'https://ivekefjfhxkozczodwxd.supabase.co/functions/v1/track';
+  function send(kind) {
+    try { navigator.sendBeacon(url, JSON.stringify({ kind: kind, path: location.pathname })); } catch (e) { /* egal */ }
+  }
+  send('visit');
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('[data-download][href]');
+    if (a) send('download');
+  });
+})();
