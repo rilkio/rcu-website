@@ -1,8 +1,8 @@
-version: 1.5.1
+version: 1.5.2
 files:
-  - url: RCU-Setup-1.5.1.exe
-    sha512: mJdTp7et3NHXxsWtcnNMG7fTEMReceH2kEH8aBdMlV4M78feLu6o7dWF/CvwBScWf+p74u8YbmcqVcTuPL8zVg==
-    size: 84525921
-path: RCU-Setup-1.5.1.exe
-sha512: mJdTp7et3NHXxsWtcnNMG7fTEMReceH2kEH8aBdMlV4M78feLu6o7dWF/CvwBScWf+p74u8YbmcqVcTuPL8zVg==
-releaseDate: '2026-11-16T19:20:49.818Z'
+  - url: RCU-Setup-1.5.2.exe
+    sha512: wKjknraSX90WZe91dX1dUFtDQni5Ss1FmBuZDq7qqwAQTrPurkA9AozumeR+U1IM34USXsL/mnr+Inn54A+TRg==
+    size: 84497811
+path: RCU-Setup-1.5.2.exe
+sha512: wKjknraSX90WZe91dX1dUFtDQni5Ss1FmBuZDq7qqwAQTrPurkA9AozumeR+U1IM34USXsL/mnr+Inn54A+TRg==
+releaseDate: '2026-11-16T19:41:47.475Z'
